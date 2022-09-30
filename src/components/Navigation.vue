@@ -56,7 +56,6 @@
   import { RouterLink, useRoute, useRouter } from 'vue-router';
   import Modal from './Modal.vue';
   import { uid } from "uid";
-  // import { uid } from "vue-uid"
 
   const savedCities = ref([]);
   const route = useRoute();
