@@ -52,43 +52,81 @@
 </template>
 
 <script setup>
-  import { ref } from "vue"
-  import { RouterLink, useRoute, useRouter } from 'vue-router';
-  import Modal from './Modal.vue';
-  import { uid } from "uid";
+  // import { ref } from "vue"
+  // import { RouterLink, useRoute, useRouter } from 'vue-router';
+  // import Modal from './Modal.vue';
+  // import { uid } from "uid";
+  // // import { uid } from "vue-uid"
 
+  // const savedCities = ref([]);
+  // const route = useRoute();
+  // const router = useRouter();
+
+  // const addCity = () => {
+  //   if (localStorage.getItem("savedCities")) {
+  //     savedCities.value = JSON.parse(
+  //       localStorage.getItem("savedCities")
+  //     );
+  //   }
+
+  //   const locationObj = {
+  //     id: uid(),
+  //     state: route.params.state,
+  //     city: route.params.city,
+  //     coords: {
+  //       lat: route.query.lat,
+  //       lng: route.query.lng
+  //     },
+  //   }
+
+  //   savedCities.value.push(locationObj);
+  //   localStorage.setItem("savedCities", JSON.stringify(savedCities.value))
+
+  //   let query = Object.assign({}, route.query);
+  //   delete query.preview;
+  //   query.id = locationObj.id;
+  //   router.replace({ query });
+  // };
+   
+  // const modalActive = ref(null);
+  // const toggleModal = () => {
+  //   modalActive.value = !modalActive.value;
+  // }
+
+  import { RouterLink, useRoute, useRouter } from "vue-router";
+  import { uid } from "uid";
+  import { ref } from "vue";
+  import Modal from './Modal.vue';
   const savedCities = ref([]);
   const route = useRoute();
   const router = useRouter();
-
   const addCity = () => {
     if (localStorage.getItem("savedCities")) {
       savedCities.value = JSON.parse(
         localStorage.getItem("savedCities")
       );
     }
-
     const locationObj = {
       id: uid(),
       state: route.params.state,
       city: route.params.city,
       coords: {
         lat: route.query.lat,
-        lng: route.query.lng
+        lng: route.query.lng,
       },
-    }
-
+    };
     savedCities.value.push(locationObj);
-    localStorage.setItem("savedCities", JSON.stringify(savedCities.value))
-
+    localStorage.setItem(
+      "savedCities",
+      JSON.stringify(savedCities.value)
+    );
     let query = Object.assign({}, route.query);
     delete query.preview;
     query.id = locationObj.id;
     router.replace({ query });
   };
-   
   const modalActive = ref(null);
   const toggleModal = () => {
     modalActive.value = !modalActive.value;
-  }
+  };
 </script>
