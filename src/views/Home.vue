@@ -32,7 +32,6 @@
   import { ref } from "vue"
   import axios from "axios"
   import { useRouter } from "vue-router";
-  import { Router } from "react-router";
   import CityList from "../components/CityList.vue";
   import CityCardSkeleton from "../components/CityCardSkeleton.vue";
  
