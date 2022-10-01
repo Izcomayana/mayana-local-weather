@@ -47,19 +47,47 @@
           </p>
         </div>
       </Modal>
+
+      <!-- <div>
+        <p>{{ cities.city }}</p>
+      </div> -->
     </nav>
   </header>
 </template>
 
 <script setup>
-  import { ref } from "vue"
+  import { ref, onMounted } from "vue"
   import { RouterLink, useRoute, useRouter } from 'vue-router';
   import Modal from './Modal.vue';
   import { uid } from "uid";
+  import { db } from '../firebase'
+  import { collection, getDocs } from 'firebase/firestore'
 
   const savedCities = ref([]);
   const route = useRoute();
   const router = useRouter();
+
+  // const newCities = ref([])
+  // // get cities from firebase
+  // onMounted(async () => {
+  //   const querySnapshot = await getDocs(collection(db, "saved-cities"))
+  //   const firebaseCities = []
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc.id, '=>', doc.data())
+  //     const cities = {
+  //       id: doc.id,
+  //       state: doc.data().state,
+  //       city: doc.data().city,
+  //       coords: {
+  //         lat: doc.data()._lat,
+  //         lng: doc.data()._long
+  //       }
+  //     }
+  //     firebaseCities.push(cities)
+  //   })
+  //   newCities.value = firebaseCities
+  //   console.log(newCities)
+  // })
 
   const addCity = () => {
     if (localStorage.getItem("savedCities")) {

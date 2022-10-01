@@ -136,8 +136,8 @@ import router from "../router";
   const getWeatherData = async () => {
     try {
       const weatherData = await axios.get(
-        // `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lat}&exclude={part}&appid=a22c0429c64a630e0df8dd48a6a2975d&units=imperial`
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&exclude={part}&appid=7efa332cf48aeb9d2d391a51027f1a71&units=imperial`        
+        // `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lat}&exclude={part}&appid=a22c0429c64a630e0df8dd48a6a2975d&units=metric`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&exclude={part}&appid=7efa332cf48aeb9d2d391a51027f1a71&units=metric`        
       );
 
       // cal current date & time
